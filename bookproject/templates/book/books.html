@@ -1,0 +1,39 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<div class="row ml-5">
+
+  <div class="col-2 mt-3" style="margin-left: 80px">
+    <h5>Important Links</h5>
+    <ul class="nav nav-pills rounded flex-column w-100 bg-dark">
+      <li class="nav-item"><a href="#" class="nav-link text-white active">Reviews</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Orders</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">WishList</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">About</a></li>
+    </ul>
+  </div>
+
+<div class="col-8 mt-2 ml-3" style="margin-right: 50px">
+  <h3 style="font-family: cursive; color: #153c6b; margin-left: 15px"><b>BUY NOW</b></h3>
+  <table class="table table-dark">
+    <tr>
+      <th>TITLE</th>
+      <th>CATEGORY</th>
+      <th>AUTHOR</th>
+      <th>PDF</th>
+      <th></th>
+    </tr>
+    {% for book in books %}
+    <tr>
+      <td>{{ book.title }}</td>
+      <td>{{ book.category }}</td>
+      <td>{{ book.author }}</td>
+      <td><a href="{% url 'book-details/' book.pk %}">Get</a></td>
+      <td style="width: 100px"><img src="{{ book.cover.url }}" class="rounded text-center"
+                 style="width: 60px; height: 45px"></td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+</div>
+{% endblock %}

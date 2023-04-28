@@ -1,0 +1,18 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<div class="container">
+    <article class="details rounded mt-4 p-1 bg-white w-50">
+        <div class="title d-flex">
+            <img src="{{ instance.cover.url }}" alt="" class="rounded-circle" style="width: 70px">
+            <h2 class="text-dark ml-3">{{ instance.title }}</h2>
+        </div>
+        <h6 class="text-secondary">Uploaded By- {{ instance.uploaded_by }}</h6>
+        <h6><b class="text-dark">{{ instance.price }}</b></h6>
+        <div class="options">
+            <a href="{% url 'payment/' instance.pk %}" class="btn btn-success">Buy Now</a>
+            <a href="{% url 'books/' %}" class="btn btn-danger">Back</a>
+        </div>
+    </article>
+</div>
+{% endblock %}

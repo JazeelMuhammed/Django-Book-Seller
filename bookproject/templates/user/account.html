@@ -1,0 +1,40 @@
+{% extends 'book/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+    <div class="col-5 mt-4" style="margin-left: 50px">
+    <table class="table table-dark mt-2 ml-4">
+        <tr>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>PDF</th>
+            <th>PRICE</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td><a href="{{ book.pdf.url }}">View</a></td>
+            <td>{{ book.price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+    <div class="col-5 mt-3" style="margin-left: 70px">
+        {% for book in books %}
+        <article class="bg-white mt-3 rounded p-1 w-75">
+            <div class="title d-flex">
+            <img src="{{ book.cover.url }}" alt="" class="rounded-circle" style="width: 80px">
+            <h3 class="ml-4 text-success">{{ book.title }}</h3>
+            <h6 class="text-warning">{{ book.price }}</h6>
+            </div>
+            <div class="button-group mt-2 ml-3 mb-1">
+                <a href="{% url 'edit/' book.pk %}" class="btn btn-sm btn-outline-secondary mr-3">Edit Book</a>
+                <a href="{% url 'delete/' book.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

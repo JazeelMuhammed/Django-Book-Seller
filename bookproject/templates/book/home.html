@@ -1,0 +1,13 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-7 mx-auto" style="margin-top: 60px; ">
+    <h1 class="text-center text-dark ml-4" style="font-family: cursive">Get Your Favourite Books Here</h1>
+    <div style="margin-left: 33%;" class="mt-4">
+      <a href="{% url 'books/' %}" class="btn btn-success btn-lg mr-2">Buy Books</a>
+      <a href="{% url 'reviews/' %}" class="btn btn-lg btn-warning">See Reviews</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

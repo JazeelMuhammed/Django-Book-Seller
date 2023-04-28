@@ -1,0 +1,31 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<div class="container">
+    <article class="details rounded mt-4 p-1 bg-white w-50">
+        <div class="title d-flex">
+            <img src="{{ instance.cover.url }}" alt="" class="rounded-circle" style="width: 70px">
+            <h2 class="text-dark ml-3">{{ instance.title }}</h2>
+        </div>
+        <h6 class="text-secondary">Uploaded By- {{ instance.uploaded_by }}</>
+        <h6><b class="text-dark">{{ instance.price }}</b></h6>
+        <div class="options">
+            <a href="{% url 'payment/' instance.pk %}" class="btn btn-success">Buy Now</a>
+            <a href="{% url 'books/' %}" class="btn btn-danger">Back</a>
+        </div>
+    </article>
+
+    <h3 class="mt-4">Best Reviews</h3>
+    <article class="review border-2 py-1 rounded my-2" style="background: #496d94; width: 40%">
+        <div class="review-body px-2">
+            <small class="d-flex"><b>{{ review.rating }}</b>
+            <b class="ml-auto mr-1" style="color: #94bda5">{{ review.user }}</b></small>
+            <p class="desc text-light mt-1 mb-0 pb-0">
+                {{ review.review }}
+            </p>
+            <small class="ml-auto"><b style="color: #55a9df">{{ review.date_posted|date:"F d Y" }}</b></small>
+        </div>
+    </article>
+</div>
+
+{% endblock %}

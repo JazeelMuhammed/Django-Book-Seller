@@ -1,0 +1,17 @@
+{% extends 'book/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container mt-3 w-75">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+            <legend class="form-group border-bottom ">Upload</legend>
+            {{ form|crispy }}
+            <div class="form-group mt-2">
+               <button class="btn btn-outline-primary" type="submit">Upload</button>
+            </div>
+        </fieldset>
+
+    </form>
+</div>
+{% endblock %}

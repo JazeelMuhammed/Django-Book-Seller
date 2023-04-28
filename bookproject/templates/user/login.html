@@ -1,0 +1,19 @@
+{% extends 'book/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container w-50 mt-5">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+            <legend class="form-group border-bottom mb-3">Log In</legend>
+            {{ form|crispy }}
+            <div class="submit-btn">
+                <button class="btn btn-primary" type="submit">Log In</button>
+            </div>
+        </fieldset>
+        <div class="border-top mt-2 mb-1">
+           <small class="text-muted">Doesn't have an account?<a href="{% url 'register/' %}" class="ml-2">Sign Up</a></small>
+        </div>
+    </form>
+</div>
+{% endblock %}
